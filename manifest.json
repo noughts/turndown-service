@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Turndown Service",
   "version": "0.7.0",
-  "description": "Google Docs・Google スプレッドシート・Google スライドのファイル一覧・Google Play Console・Okta をダークモードで表示し、Gmail の読み込み画面とメールを開いた画面を暗くする",
+  "description": "Darkens work sites without a dark mode (Google Docs, Sheets, Slides, Play Console, Okta) and the parts of Gmail that stay white.",
   "content_scripts": [
     {
       "matches": [
