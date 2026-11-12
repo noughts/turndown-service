@@ -11,12 +11,19 @@ html {
 
 /*
  * 写真や動画はもう一度反転して、元の色に戻す。
+ * ファイル一覧のファイル種別アイコン（-type-）も、画像なので元の色に戻す。
  * ダイアログの背景（黒の半透明）も、反転すると明るくなるので戻す。
  * .modal-dialog-bg は Docs の従来のダイアログ、__scrim はスプレッドシートなどの Material Design のダイアログ。
  */
 img,
 video,
+.docs-homescreen-img[class*='-type-'],
 .modal-dialog-bg,
 [class*='__scrim'] {
   filter: invert(1) hue-rotate(180deg) !important;
+}
+
+/* 右上の組織のロゴは透明な背景に暗い文字なので、ページと一緒に反転したままにして明るい文字で見せる */
+img[src*='/ac/images/logo.gif'] {
+  filter: none !important;
 }
