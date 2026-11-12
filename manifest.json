@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Workspace & Okta Dark Mode",
-  "version": "0.5.0",
-  "description": "Google Docs・Google スプレッドシート・Google スライドのファイル一覧・Okta をダークモードで表示し、Gmail の読み込み画面とメールを開いた画面を暗くする",
+  "version": "0.6.0",
+  "description": "Google Docs・Google スプレッドシート・Google スライドのファイル一覧・Google Play Console・Okta をダークモードで表示し、Gmail の読み込み画面とメールを開いた画面を暗くする",
   "content_scripts": [
     {
       "matches": [
@@ -17,7 +17,7 @@
       "run_at": "document_start"
     },
     {
-      "matches": ["https://*.okta.com/*"],
+      "matches": ["https://*.okta.com/*", "https://play.google.com/console/*"],
       "css": ["dark.css"]
     },
     {

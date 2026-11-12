@@ -38,13 +38,23 @@ body::-webkit-scrollbar-corner {
  * ファイル一覧のファイル種別アイコン（-type-）も、画像なので元の色に戻す。
  * ダイアログの背景（黒の半透明）も、反転すると明るくなるので戻す。
  * .modal-dialog-bg は Docs の従来のダイアログ、__scrim はスプレッドシートなどの Material Design のダイアログ。
+ * Play Console の上部のお知らせ（banner、濃い青に白い文字）も、反転すると明るい帯になるので戻す。
  */
 img,
 video,
 .docs-homescreen-img[class*='-type-'],
 .modal-dialog-bg,
-[class*='__scrim'] {
+[class*='__scrim'],
+banner {
   filter: invert(1) hue-rotate(180deg) !important;
+}
+
+/*
+ * Play Console のダイアログ背景（.pane.modal）は中にダイアログ本体を含むので、反転し直すと本体まで明るくなる。
+ * 黒の半透明を白の半透明に変え、ページと一緒に反転させて暗い背景にする。
+ */
+.acx-overlay-container > .pane.modal {
+  background-color: rgba(255, 255, 255, 0.32) !important;
 }
 
 /* 右上の組織のロゴは透明な背景に暗い文字なので、ページと一緒に反転したままにして明るい文字で見せる */
