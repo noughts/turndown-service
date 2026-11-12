@@ -10,17 +10,27 @@ html {
 }
 
 /*
- * ページ全体のスクロールバーは filter の外に描かれ、白いまま残るので、ダーク用の見た目にする。
- * color-scheme は子要素に継承され、反転と重なって明るくなるので body 以下はライトに戻す（中のスクロールバーは filter で暗くなる）。
- * ダークにすると既定の文字色も白になって body 以下に継承されるので、ライトのときと同じ黒に戻す。
+ * ページ全体のスクロールバーは filter の外に描かれ、白いまま残るので、暗い色で描き直す。
+ * color-scheme: dark では変わらず、scrollbar-color では常に表示のスクロールバーがスクロール中だけの表示に変わるので、
+ * ::-webkit-scrollbar で幅も含めて指定する。Chrome はページ全体のスクロールバーに body の指定を使う。
+ * #1a1a1a は、白い背景を invert(0.9) したときの色。
  */
-html {
-  color-scheme: dark !important;
-  color: #000;
+body::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+  background-color: #1a1a1a;
 }
 
-body {
-  color-scheme: light;
+/* 透明な縁でつまみの周りにトラックをのぞかせ、細いつまみに見せる */
+body::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border: 4px solid transparent;
+  background-clip: padding-box;
+  border-radius: 8px;
+}
+
+body::-webkit-scrollbar-corner {
+  background-color: #1a1a1a;
 }
 
 /*
