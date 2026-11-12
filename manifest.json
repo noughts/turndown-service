@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Workspace & Okta Dark Mode",
-  "version": "0.6.0",
+  "name": "Turndown Service",
+  "version": "0.7.0",
   "description": "Google Docs・Google スプレッドシート・Google スライドのファイル一覧・Google Play Console・Okta をダークモードで表示し、Gmail の読み込み画面とメールを開いた画面を暗くする",
   "content_scripts": [
     {
