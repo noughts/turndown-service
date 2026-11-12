@@ -1,0 +1,42 @@
+/*
+ * Gmail はダークテーマでも、読み込み中の画面とメールを開いた画面だけが白い。
+ * ほかの部分は Gmail のテーマに任せ、この 2 つだけを暗くする。
+ */
+
+/* 読み込み中の画面（#loading）は、ダークテーマの色（背景 #111・文字 #eee）に合わせる */
+#loading {
+  background-color: #111 !important;
+  color: #eee !important;
+}
+
+/* 読み込みが遅いときの案内文。黒い文字色が直接指定されているので、#loading の色を継がせる */
+#loading .msgb {
+  color: inherit !important;
+}
+
+#loading a {
+  color: #8ab4f8 !important;
+}
+
+/* 「Google Workspace」のロゴは暗い灰色の文字なので、反転して明るくする */
+#loading .msg img {
+  filter: invert(1);
+}
+
+/* プログレスバーの溝 */
+#nlpt {
+  background-color: #333 !important;
+}
+
+/*
+ * メールを開いた画面（.a98）は、Docs などと同じく色を反転して暗くする。
+ * HTML メールは送り主が色を直接指定しているので、色を一つずつ変えるより反転のほうが確実。
+ */
+.a98 {
+  filter: invert(0.9) hue-rotate(180deg);
+}
+
+/* 写真やロゴはもう一度反転して、元の色に戻す（Gmail はメール本文の video を取り除くので img だけ） */
+.a98 img {
+  filter: invert(1) hue-rotate(180deg);
+}

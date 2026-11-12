@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Docs, Sheets, Gmail & Okta Dark Mode",
+  "version": "0.4.0",
+  "description": "Google Docs・Google スプレッドシート・Okta をダークモードで表示し、Gmail の読み込み画面とメールを開いた画面を暗くする",
+  "content_scripts": [
+    {
+      "matches": ["https://docs.google.com/document/*", "https://docs.google.com/spreadsheets/*"],
+      "css": ["dark.css"],
+      "js": ["docs-canvas.js"],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://*.okta.com/*"],
+      "css": ["dark.css"]
+    },
+    {
+      "matches": ["https://mail.google.com/*"],
+      "css": ["gmail.css"]
+    },
+    {
+      "matches": ["https://docs.google.com/picker/*"],
+      "js": ["docs-picker.js"],
+      "all_frames": true,
+      "run_at": "document_start"
+    }
+  ]
+}

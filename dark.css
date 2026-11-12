@@ -1,0 +1,22 @@
+/*
+ * ページ全体の色を反転してダーク表示にする。
+ * Google Docs の本文やスプレッドシートのセルは canvas に描かれるので、文字色や背景色を CSS で直接変えられない。
+ * hue-rotate で色相を戻し、リンクやハイライトの色味を元に近づける。
+ */
+html {
+  filter: invert(0.9) hue-rotate(180deg) !important;
+  /* 背景が透明なページはブラウザ既定の白い下地が見え、そこには filter が掛からない。白を指定して反転させる */
+  background-color: #fff !important;
+}
+
+/*
+ * 写真や動画はもう一度反転して、元の色に戻す。
+ * ダイアログの背景（黒の半透明）も、反転すると明るくなるので戻す。
+ * .modal-dialog-bg は Docs の従来のダイアログ、__scrim はスプレッドシートなどの Material Design のダイアログ。
+ */
+img,
+video,
+.modal-dialog-bg,
+[class*='__scrim'] {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
