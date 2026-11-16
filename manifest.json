@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Turndown Service",
-  "version": "0.7.0",
-  "description": "Darkens work sites without a dark mode (Google Docs, Sheets, Slides, Play Console, Okta) and the parts of Gmail that stay white.",
+  "version": "0.8.0",
+  "description": "Darkens work sites with no dark mode (Google Docs, Sheets, Slides, Play Console, App Store Connect, Okta) and white parts of Gmail.",
   "content_scripts": [
     {
       "matches": [
@@ -17,7 +17,11 @@
       "run_at": "document_start"
     },
     {
-      "matches": ["https://*.okta.com/*", "https://play.google.com/console/*"],
+      "matches": [
+        "https://*.okta.com/*",
+        "https://play.google.com/console/*",
+        "https://appstoreconnect.apple.com/*"
+      ],
       "css": ["dark.css"]
     },
     {
