@@ -39,14 +39,26 @@ body::-webkit-scrollbar-corner {
  * ダイアログの背景（黒の半透明）も、反転すると明るくなるので戻す。
  * .modal-dialog-bg は Docs の従来のダイアログ、__scrim はスプレッドシートなどの Material Design のダイアログ。
  * Play Console の上部のお知らせ（banner、濃い青に白い文字）も、反転すると明るい帯になるので戻す。
+ * App Store Connect のアプリアイコンは、Apple の画像配信元（mzstatic.com）の画像を背景に指定した要素なので戻す。
+ * App Store Connect のダイアログ背景は、dialog の直前にある aria-hidden の要素。
  */
 img,
 video,
 .docs-homescreen-img[class*='-type-'],
 .modal-dialog-bg,
 [class*='__scrim'],
-banner {
+banner,
+[style*='mzstatic.com'],
+[aria-hidden='true']:has(+ dialog[aria-modal='true']) {
   filter: invert(1) hue-rotate(180deg) !important;
+}
+
+/*
+ * App Store Connect のダイアログ本体は白一色で影も枠もないので、上で暗く戻した背景と見分けにくい。
+ * 同じ背景の直後のダイアログだけを少し灰色にして、反転後は背景より明るい面に見せる。
+ */
+[aria-hidden='true'] + dialog[aria-modal='true'] > div {
+  background-color: #eee !important;
 }
 
 /*

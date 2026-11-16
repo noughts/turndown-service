@@ -12,6 +12,7 @@ Bright white pages are hard on your eyes when you stare at them all day. Turndow
 | Google Sheets | The editor and the file list |
 | Google Slides | The file list only. The editor is left alone so slide designs keep their real colors |
 | Google Play Console | All pages |
+| App Store Connect | All pages |
 | Okta | All pages on `*.okta.com` |
 | Gmail | Only the parts that stay white in Gmail's own dark theme: the loading screen and the opened-message view |
 
@@ -20,7 +21,7 @@ For Gmail, turn on one of Gmail's dark themes first. The extension then fills in
 ## How it works
 
 - Page colors are inverted with a CSS filter, and the hue is rotated back so links and highlights keep colors close to the original.
-- Photos, videos, logos and file-type icons are inverted a second time so they show their original colors.
+- Photos, videos, logos, app icons and file-type icons are inverted a second time so they show their original colors.
 - Google Docs and Sheets draw document content and cell images on a canvas. Images drawn there are pre-inverted so they also keep their original colors.
 - Dialog backdrops stay dark instead of turning bright.
 
