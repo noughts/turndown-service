@@ -11,6 +11,7 @@ Bright white pages are hard on your eyes when you stare at them all day. Turndow
 | Google Docs | The editor and the file list |
 | Google Sheets | The editor and the file list |
 | Google Slides | The file list only. The editor is left alone so slide designs keep their real colors |
+| Google Apps Script | The project list and the editor. Web apps you deploy are left alone so they keep their own design |
 | Google Play Console | All pages |
 | App Store Connect | All pages |
 | Okta | All pages on `*.okta.com` |

@@ -38,6 +38,7 @@ body::-webkit-scrollbar-corner {
  * ファイル一覧のファイル種別アイコン（-type-）も、画像なので元の色に戻す。
  * ダイアログの背景（黒の半透明）も、反転すると明るくなるので戻す。
  * .modal-dialog-bg は Docs の従来のダイアログ、__scrim はスプレッドシートなどの Material Design のダイアログ。
+ * .VfPpkd-IE5DDf は Google が __scrim のクラス名を短縮したもので、Apps Script のダイアログで確認した。
  * Play Console の上部のお知らせ（banner、濃い青に白い文字）も、反転すると明るい帯になるので戻す。
  * App Store Connect のアプリアイコンは、Apple の画像配信元（mzstatic.com）の画像を背景に指定した要素なので戻す。
  * App Store Connect のダイアログ背景は、dialog の直前にある aria-hidden の要素。
@@ -47,6 +48,7 @@ video,
 .docs-homescreen-img[class*='-type-'],
 .modal-dialog-bg,
 [class*='__scrim'],
+.VfPpkd-IE5DDf,
 banner,
 [style*='mzstatic.com'],
 [aria-hidden='true']:has(+ dialog[aria-modal='true']) {
@@ -62,11 +64,16 @@ banner,
 }
 
 /*
- * Play Console のダイアログ背景（.pane.modal）は中にダイアログ本体を含むので、反転し直すと本体まで明るくなる。
- * 黒の半透明を白の半透明に変え、ページと一緒に反転させて暗い背景にする。
+ * Play Console のダイアログ（.pane.modal）と、Apps Script のトリガーなどのダイアログ（Google の短縮されたクラス名 .llhEMd）の背景は、
+ * 中にダイアログ本体を含むので、反転し直すと本体まで明るくなる。
+ * 黒の半透明を同じ不透明度の白の半透明に変え、ページと一緒に反転させて暗い背景にする。
  */
 .acx-overlay-container > .pane.modal {
   background-color: rgba(255, 255, 255, 0.32) !important;
+}
+
+.llhEMd {
+  background-color: rgba(255, 255, 255, 0.6) !important;
 }
 
 /* 右上の組織のロゴは透明な背景に暗い文字なので、ページと一緒に反転したままにして明るい文字で見せる */
