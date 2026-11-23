@@ -3,6 +3,11 @@
   "name": "Turndown Service",
   "version": "0.9.0",
   "description": "Darkens sites with no dark mode (Docs, Sheets, Slides, Apps Script, Play Console, App Store Connect, Okta) and white parts of Gmail.",
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
   "content_scripts": [
     {
       "matches": [
